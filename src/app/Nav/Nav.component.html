@@ -16,10 +16,11 @@
       </li>
   </ul>
 
-  <form class="d-flex">
-    <input class="form-control me-2" type="text" placeholder="Username">
-    <input class="form-control me-2" type="password" placeholder="Password">
-    <button class="btn btn-success" type="submit">Login</button>
+  <!-- Using Template Form -->
+  <form ngNativeValidate  #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
+    <input class="form-control me-2" name="username" type="text" placeholder="Username" required [(ngModel)]="model.username">
+    <input class="form-control me-2" name = "password" type="password" placeholder="Password" required [(ngModel)]="model.password">
+    <button [disabled]="!loginForm.valid" class="btn btn-success" type="submit">Login</button>
   </form>
 </div>
 </nav>
