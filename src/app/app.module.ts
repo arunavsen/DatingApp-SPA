@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { AnimalComponent } from './animal/animal.component';
 import { NavComponent } from './Nav/Nav.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './_services/auth.service';
 
 @NgModule({
   declarations: [				
@@ -20,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
