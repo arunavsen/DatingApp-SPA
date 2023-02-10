@@ -7,21 +7,18 @@ import {map} from 'rxjs/operators';
 })
 export class AuthService {
 
-baseurl = 'http://localhost:5010/Auth/login';
+baseurl = 'http://localhost:5010/auth/login';
 
 constructor(private http: HttpClient) { }
 
 login(model:any){
-  this.http.post(this.baseurl, model).pipe(
-    map(
-        (response: any) => {
-          const user = response;
-          if(user)
-          {
-            localStorage.setItem('token',user.token);
-          }
-        }
-     )
+  return this.http.post(this.baseurl,model,).pipe(
+    map((response: any) => {
+      const user = response;
+      if(user){
+        localStorage.setItem('token',user.token);
+      }
+    })
   );
 }
 
