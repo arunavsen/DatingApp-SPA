@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import {HttpClientModule} from '@angular/common/http'
 import { AnimalComponent } from './animal/animal.component';
+import { NavComponent } from './Nav/Nav.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
       ValueComponent,
-      AnimalComponent
+      AnimalComponent,
+      NavComponent
    ],
   imports: [
     BrowserModule,
