@@ -14,10 +14,34 @@
           Messages
         </a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" (click)="logOut()">
+          Logout
+        </a>
+      </li>
   </ul>
 
+  <div *ngIf="loggedIn()" class="dropdown">
+    <a class="dropdown-toggle text-light">
+      Welcome User
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item" href="#">
+          <i class="fa fa-user"></i>Edit Profile
+        </a>
+      </li>
+      <div class="dropdown-divider"></div>
+      <li>
+        <a class="dropdown-item" href="#">
+          <i class="fa fa-sign-out"></i>Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+
   <!-- Using Template Form -->
-  <form ngNativeValidate  #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
+  <form *ngIf="!loggedIn()" ngNativeValidate  #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
     <input class="form-control me-2" name="username" type="text" placeholder="Username" required [(ngModel)]="model.username">
     <input class="form-control me-2" name = "password" type="password" placeholder="Password" required [(ngModel)]="model.password">
     <button [disabled]="!loginForm.valid" class="btn btn-success" type="submit">Login</button>
