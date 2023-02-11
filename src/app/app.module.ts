@@ -8,13 +8,17 @@ import { AnimalComponent } from './animal/animal.component';
 import { NavComponent } from './Nav/Nav.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [				
+  declarations: [						
     AppComponent,
       ValueComponent,
       AnimalComponent,
-      NavComponent
+      NavComponent,
+      HomeComponent,
+      RegisterComponent
    ],
   imports: [
     FormsModule,
