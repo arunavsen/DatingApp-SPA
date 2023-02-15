@@ -9,15 +9,6 @@
     <input required name="password" type="password" class="form-control mt-2" placeholder="Password" [(ngModel)]="model.password">
   </div>
 
-  <div class="form-group">
-    <label for="favouriteValue">What is your favourite value?</label>
-    <select class="form-control" id="favouriteValue">
-      <option *ngFor="let item of values_From_Home" [value]="item">
-        {{item.name}}
-      </option>
-    </select>
-  </div>
-
   <div class="form-group text-center mt-2">
     <button class="btn btn-success" type="submit">Register</button>
     <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
