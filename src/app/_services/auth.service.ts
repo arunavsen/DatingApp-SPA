@@ -21,7 +21,6 @@ login(model:any){
       if(user){
         localStorage.setItem('token',user.token);
         this.decodedText = this.jwtHelper.decodeToken(user.token);
-        return this.decodedText;
       }
     })
   );
