@@ -4,3 +4,37 @@
 @import "../node_modules/font-awesome/css/font-awesome.min.css";
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+.tab-content {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .nav-tabs .nav-item .nav-link.active {
+    border-bottom: 4px solid #ffc107;
+    position: relative;
+  }
+  
+  .nav-tabs .nav-item .nav-link {
+    border: 0;
+    background: none !important;
+    color: #333333;
+  }
+  
+  .nav-tabs .nav-item .nav-link.active,
+  .nav-tabs .nav-item .nav-link:hover {
+    color: #333333;
+  }
+  
+  .nav-tabs .nav-item .nav-link i {
+    color: #404040;
+  }
+  
+  .tab-content {
+    margin-top: -3px;
+    background-color: #fff;
+    border: 0;
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+  }
