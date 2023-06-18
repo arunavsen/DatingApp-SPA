@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -34,13 +35,14 @@ export function tokenGetter(){
       MemberListComponent,
       ListsComponent,
       MessegesComponent,
-      MemberCardComponent
+      MemberCardComponent,
    ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule
     ,BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     JwtModule.forRoot({
