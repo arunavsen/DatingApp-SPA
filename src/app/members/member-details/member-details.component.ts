@@ -18,7 +18,10 @@ export class MemberDetailsComponent implements OnInit {
   constructor(private userservice: UserService, private alertify: AlertifyServiceService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUser();
+    // this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data['user'];
+    });
   }
 
   ngAfterViewInit() {
@@ -31,13 +34,13 @@ export class MemberDetailsComponent implements OnInit {
       $(this).tab('show');
     });
   }
-  
-  loadUser(){
-    this.userservice.getUser(+this.route.snapshot.params['id']).subscribe((user: User) => {
-      this.user = user;
-    }, error => {
-      this.alertify.error(error);
-    })
-  }
+
+  // loadUser(){
+  //   this.userservice.getUser(+this.route.snapshot.params['id']).subscribe((user: User) => {
+  //     this.user = user;
+  //   }, error => {
+  //     this.alertify.error(error);
+  //   })
+  // }
 
 }
