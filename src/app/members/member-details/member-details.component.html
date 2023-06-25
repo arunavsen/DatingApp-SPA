@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8">      
       <ul class="nav nav-tabs">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#about">About {{user?.knownAs}}</a>
@@ -56,7 +56,18 @@
           <p>{{user.interestes}}</p>
         </div>
         <div class="tab-pane fade" id="photos">
-          <p>Photos will be here</p>
+          <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let photo of user.photos">
+              <div class="card">
+                <a href="{{ photo.url }}" data-lightbox="user-photos" data-title="{{ photo.description }}">
+                  <img class="card-img-top img-thumbnail" src="{{ photo.url }}" alt="{{ photo.description }}">
+                </a>
+                <div class="card-body">
+                  <p>{{ photo.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="tab-pane fade" id="messages">
           <p>Messages will be here</p>

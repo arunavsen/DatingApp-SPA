@@ -1,26 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/_models/user';
 import { AlertifyServiceService } from 'src/app/_services/AlertifyService.service';
 import { UserService } from 'src/app/_services/user.service';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import * as $ from 'jquery';
+import { IAlbum, Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-member-details',
   templateUrl: './member-details.component.html',
   styleUrls: ['./member-details.component.css']
 })
+
 export class MemberDetailsComponent implements OnInit {
 
   user: User;
+  albums: IAlbum[] = [];
+  
+  @ViewChild('memberTabs', { static: true }) memberTabs: TabsetComponent;
 
-  constructor(private userservice: UserService, private alertify: AlertifyServiceService, private route: ActivatedRoute) { }
+  constructor(private userservice: UserService, private alertify: AlertifyServiceService, private route: ActivatedRoute, private lightbox: Lightbox) { }
 
   ngOnInit() {
-    // this.loadUser();
     this.route.data.subscribe(data => {
       this.user = data['user'];
+      this.albums = this.user.photos.map((photo) => ({
+        src: photo.url,
+        caption: photo.description,
+        thumb: photo.url
+      }));
     });
   }
 
@@ -35,12 +44,8 @@ export class MemberDetailsComponent implements OnInit {
     });
   }
 
-  // loadUser(){
-  //   this.userservice.getUser(+this.route.snapshot.params['id']).subscribe((user: User) => {
-  //     this.user = user;
-  //   }, error => {
-  //     this.alertify.error(error);
-  //   })
-  // }
+  openLightbox(index: number): void {
+    this.lightbox.open(this.albums, index);
+  }
 
 }
