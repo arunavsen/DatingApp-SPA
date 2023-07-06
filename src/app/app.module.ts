@@ -28,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MemberDetailsComponent } from './members/member-details/member-details.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -65,7 +66,7 @@ export function tokenGetter(){
       }
     })
   ],
-  providers: [AuthService, ErrorInterceptor, MemberDetailsResolver, MemberListResolver, MemberEditResolver],
+  providers: [AuthService, ErrorInterceptor, MemberDetailsResolver, MemberListResolver, MemberEditResolver,PreventUnsavedChanges],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
