@@ -47,7 +47,7 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane fade show active" id="editProfile">
-          <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+          <form #editForm="ngForm" id="editForm" (ngSubmit)="UpdateUser()">
             <h4>Description</h4>
             <textarea name="introduction" rows="6" class="form-control" [(ngModel)]="user.introduction"></textarea>
             <h4>Looking For</h4>
